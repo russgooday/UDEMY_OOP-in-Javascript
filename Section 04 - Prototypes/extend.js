@@ -1,6 +1,6 @@
-const isEmptyObject = obj => {
-  return Object.prototype.toString.call(obj) === '[object Object]' && JSON.stringify(obj) === '{}'
-}
+const isEmptyObject = obj => (
+  Object.prototype.toString.call(obj) === '[object Object]' && JSON.stringify(obj) === '{}'
+)
 
 /**
  * @param {Object} sourceObject
