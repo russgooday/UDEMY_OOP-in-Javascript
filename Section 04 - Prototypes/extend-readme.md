@@ -1,5 +1,5 @@
 # Extend Script
-Expanded upon the course example below
+Expanding upon the course example below
 ```
 function extend (Parent, Child) {
   Child.prototype = Object.create(Parent.prototype)
