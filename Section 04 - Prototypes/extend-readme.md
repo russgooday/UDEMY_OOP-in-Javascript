@@ -9,7 +9,7 @@ function extend (Parent, Child) {
 I wanted to add some extra functionality, starting with defining a super getter and setter on the child's prototype.
 
 ## __super
-Included is a ***__super*** getter and setter, which is added to the extended object's prototype and enables you to *constructor borrow* from the parent constructor by calling `this.__super(args)` or referencing the parent with `this.__super`. Emulating somewhat the ES6 class implementation of super()
+Included is a ***__super*** getter and setter, which is added to the extended object's prototype and enables you to *constructor borrow* from the parent constructor by calling `this.__super(args)` or reference the parent with `this.__super`. Emulating somewhat the ES6 class implementation of super()
 
 ## Adding optional members
 In addition the extend script enables you to supply an optional object to mixin with the extended object's prototype
