@@ -1,5 +1,5 @@
 # Extend Script
-Very much expanded from the course example given, I wanted to write my own extend script.
+Very much expanded upon from the course example given, I wanted to write my own extend script.
 
 ## __super
 Included is a ***__super*** getter and setter, which is added to the extended object's prototype and enables you to *constructor borrow* from the parent constructor by simple calling `this.__super(args)` or retrieve the parent with `this.__super`. Emulating somewhat the ES6 class implementation of super()
