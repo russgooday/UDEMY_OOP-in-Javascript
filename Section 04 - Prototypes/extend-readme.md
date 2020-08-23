@@ -27,7 +27,7 @@ extend(parent, child, {
 }
 ```
 
-Copying accessors was a discovery. ***Object.assign*** evalutes these to key and value pairs rather than copying the actual accessor methods.
+Copying accessors was a discovery. **Object.assign** evalutes these to key and value pairs rather than copying the actual accessor methods.
 
 Example
 ```
