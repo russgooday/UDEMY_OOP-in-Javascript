@@ -13,7 +13,7 @@ Example usage adding a getter and a method to the child's prototype:
 extend(parent, child, {
   get name () {
     return this.name
-  }
+  },
   sayHi() {
     console.log(`Hi ${this.name}`)
   }  
