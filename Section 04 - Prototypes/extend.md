@@ -20,7 +20,7 @@ extend(parent, child, {
 }
 ```
 
-Copying getters and setters was a discovery, as ***Object.assign*** evalutes these to key and value pairs rather than copying the actual getter and setter
+Copying getters and setters was a discovery. ***Object.assign*** evalutes these to key and values rather than copying the actual getter and setter
 
 Example 
 ```
