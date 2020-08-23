@@ -33,7 +33,7 @@ const extend = (parent, child, optional = {}) => {
         },
         __super: {
           get () { return parent },
-          set (...args) { if (args.length) parent.apply(this, args) },
+          // set (...args) { if (args.length) parent.apply(this, args) },
           configurable: false,
           enumerable: false
         }
