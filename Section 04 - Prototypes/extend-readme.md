@@ -46,9 +46,9 @@ Output:
   __proto__: Object
 ```
 
-Using ***Object.getOwnPropertyDescriptors*** properties need to be broken down first into keys and object descriptors. Then with ***Object.defineProperties*** they can be assigned to the new object — functionality intact.
+Using ***Object.getOwnPropertyDescriptors***, object members need to be converted into key and object descriptor pairs. With ***Object.defineProperties*** they can then be assigned to the new object — functionality intact.
 
-A good solution for this called ***assignComplete*** can be found on MDN's Object.assign page
+A full solution for this is called ***assignComplete*** can be found on MDN's Object.assign page
 
 ## mixin
 
