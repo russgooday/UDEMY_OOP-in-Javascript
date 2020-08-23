@@ -1,5 +1,12 @@
 # Extend Script
-Very much expanded upon from the course example given, I wanted to write my own extend script.
+Expanded upon the course example below
+```
+function extend (Parent, Child) {
+  Child.prototype = Object.create(Parent.prototype)
+  Child.prototype.constructor = Child
+}
+```
+I wanted to add some extra functionality, starting with defining a super getter and setter on the child's prototype.
 
 ## __super
 Included is a ***__super*** getter and setter, which is added to the extended object's prototype and enables you to *constructor borrow* from the parent constructor by simple calling `this.__super(args)` or retrieve the parent with `this.__super`. Emulating somewhat the ES6 class implementation of super()
@@ -20,7 +27,7 @@ extend(parent, child, {
 }
 ```
 
-Copying getters and setters was a discovery. ***Object.assign*** evalutes these to key and values rather than copying the actual getter and setter
+Copying accessors was a discovery. ***Object.assign*** evalutes these to key and value pairs rather than copying the actual accessor methods.
 
 Example
 ```
@@ -45,16 +52,16 @@ A good solution for this called ***assignComplete*** can be found on MDN's Objec
 
 ## mixin
 
-Following on from extend, the following course example also runs into potentially a similar issue with accessors
+Following on from extend, the following course example also runs into potentially similar issues with accessors
 
 ```
 function mixin(target, ...sources){
   Object.assign(target, ...sources)
 }
 ```
-Utitlising some existing functions in the extend script it was pretty straight forward to write a mixin function that with work with accessors
+Utitlising some existing functions in the extend script it was pretty straight forward to write a mixin function that will work with accessors. I have bolted this onto the extend script for the timebeing.
 
-Usage is the same as the course example **mixin(targetObject, sourceObject1, sourceObject1 etc)**
+Usage is the same as the course example `mixin(targetObject, sourceObject1, sourceObject1 etc)`
 
 A simple test
 ```
