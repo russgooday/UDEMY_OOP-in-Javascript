@@ -21,7 +21,7 @@ const getObjectDescriptors = sourceObject => (
  * @param {Object} child - Child who's prototype will be assigned the newly created object
  * @param {Object} optional - Optional object to merge with child's new prototype
  */
-const extend = function (parent, child, optional = {}) {
+const extend = (parent, child, optional = {}) => {
   child.prototype = Object.create(parent.prototype,
     Object.assign(
       {
@@ -43,4 +43,16 @@ const extend = function (parent, child, optional = {}) {
   )
 }
 
-export { extend }
+/**
+ * @param {Object} target
+ * @param {...Objects} sources
+ * @returns target object
+ */
+const mixin = (target, ...sources) => (
+  Object.defineProperties(
+    target,
+    Object.assign({}, ...sources.map(getObjectDescriptors))
+  )
+)
+
+export { extend, mixin }

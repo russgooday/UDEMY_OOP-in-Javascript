@@ -16,13 +16,13 @@ extend(parent, child, {
   },
   sayHi() {
     console.log(`Hi ${this.name}`)
-  }  
+  }
 }
 ```
 
 Copying getters and setters was a discovery. ***Object.assign*** evalutes these to key and values rather than copying the actual getter and setter
 
-Example 
+Example
 ```
 const obj = {
   x: 10,
@@ -43,5 +43,44 @@ Using ***Object.getOwnPropertyDescriptors*** properties need to be broken down f
 
 A good solution for this called ***assignComplete*** can be found on MDN's Object.assign page
 
+## mixin
 
+Following on from extend, the following course example also runs into potentially a similar issue with accessors
 
+```
+function mixin(target, ...sources){
+  Object.assign(target, ...sources)
+}
+```
+Utitlising some existing functions in the extend script it was pretty straight forward to write a mixin function that with work with accessors
+
+Usage is the same as the course example **mixin(targetObject, sourceObject1, sourceObject1 etc)**
+
+A simple test
+```
+var obj1 = {
+  x: 10,
+  get currentPos () {
+    return `x: ${this.x}`
+  }
+}
+
+var obj2 = {
+  y: 20,
+  get currentPos () {
+    return `x: ${this.x}  y: ${this.y}`
+  }
+}
+
+const target = {}
+console.dir(mixin(target, obj1, obj2))
+// Output
+Object
+  x: 10
+  y: 20
+  // note obj2's getter over-rides obj1's
+  get currentPos: ƒ currentPos( return `x: ${this.x}  y: ${this.y}` )
+  __proto__: Object
+
+target.currentPos // Output "x: 10  y: 20"
+```
