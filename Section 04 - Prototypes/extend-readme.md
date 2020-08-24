@@ -6,13 +6,16 @@ function extend (Parent, Child) {
   Child.prototype.constructor = Child
 }
 ```
-I wanted to add some extra functionality, starting with defining a super getter and setter on the child's prototype.
+I wanted to add some extra functionality, starting with ...
 
-## __super
-Included is a ***__super*** getter and setter, which is added to the extended object's prototype and enables you to *constructor borrow* from the parent constructor by calling `this.__super(args)` or reference the parent with `this.__super`. Emulating somewhat the ES6 class implementation of super()
+## _superCall
+***_superCall*** is simply a reference to the Parent constructor. It can be used in the child constructor to *constructor borrow* from the parent by calling `this._superCall(args)`
+
+# _super
+Similarly ***_super*** is a reference to the Parent.prototype and can be accessed with `this.super`
 
 ## Adding optional members
-In addition the extend script enables you to supply an optional object to mixin with the extended object's prototype
+In addition there is an optional third argument which takes an object to mixin with the extended object's prototype
 
 Example usage adding a getter and a method to the child's prototype:
 

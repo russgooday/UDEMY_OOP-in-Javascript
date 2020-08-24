@@ -14,7 +14,7 @@ Object.defineProperties(Shape.prototype, {
 })
 
 function Square (name, colour, size) {
-  this.__super(name, colour)
+  this._super(name, colour)
   this.size = size
 }
 

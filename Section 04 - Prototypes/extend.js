@@ -1,6 +1,6 @@
-const isEmptyObject = obj => (
-  Object.prototype.toString.call(obj) === '[object Object]' && JSON.stringify(obj) === '{}'
-)
+const classof = obj => Object.prototype.toString.call(obj).slice(8, -1)
+
+const isEmptyObject = obj => classof(obj) === 'Object' && JSON.stringify(obj) === '{}'
 
 /**
  * @param {Object} sourceObject
@@ -21,21 +21,27 @@ const getObjectDescriptors = sourceObject => (
  * @param {Object} child - Child who's prototype will be assigned the newly created object
  * @param {Object} optional - Optional object to merge with child's new prototype
  */
-const extend = (parent, child, optional = {}) => {
-  child.prototype = Object.create(parent.prototype,
+const extend = (Parent, Child, optional = {}) => {
+  Child.prototype = Object.create(Parent.prototype,
     Object.assign(
       {
         constructor: {
-          value: child,
+          value: Child,
           enumerable: false,
           writable: true,
           configurable: true
         },
-        __super: {
-          get () { return parent },
-          // set (...args) { if (args.length) parent.apply(this, args) },
+        _super: {
+          value: Parent.prototype,
           configurable: false,
-          enumerable: false
+          enumerable: false,
+          writable: false
+        },
+        _superCall: {
+          value: Parent,
+          configurable: false,
+          enumerable: false,
+          writable: false
         }
       },
       getObjectDescriptors(optional)
