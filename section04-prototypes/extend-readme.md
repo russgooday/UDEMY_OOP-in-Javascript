@@ -11,7 +11,7 @@ I wanted to add some extra functionality, starting with ...
 ## _superCall
 ***_superCall*** is simply a reference to the Parent constructor. It can be used in the child constructor to *constructor borrow* from the parent by calling `this._superCall(args)`
 
-# _super
+## _super
 Similarly ***_super*** is a reference to the Parent.prototype and can be accessed with `this.super`
 
 ## Adding optional members
