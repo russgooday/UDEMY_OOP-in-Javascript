@@ -1,4 +1,4 @@
-// Note: Still at proposal stage
+// Note: #var is still at proposal stage and not adopted by all browsers
 class Circle {
   #radius // private property
 
@@ -11,4 +11,4 @@ class Circle {
   }
 }
 
-const c1 = new Circle(10)
+export { Circle }

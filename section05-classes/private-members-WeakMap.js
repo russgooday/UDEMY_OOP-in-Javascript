@@ -18,4 +18,4 @@ class Circle {
   }
 }
 
-const c1 = new Circle(10)
+export { Circle }
