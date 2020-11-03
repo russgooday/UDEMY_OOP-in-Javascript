@@ -44,7 +44,7 @@ const obj = {
 Object.assign({}, obj)
 
 Output:
-  posX: "10px" <-- evaluated instead of copying getter
+  posX: "10px" // <-- evaluated instead of copying getter
   x: 10
   __proto__: Object
 ```
