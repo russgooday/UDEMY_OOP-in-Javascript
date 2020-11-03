@@ -1,6 +1,6 @@
 # Extend Script
 Expanding upon the course example below
-```
+```js
 function extend (Parent, Child) {
   Child.prototype = Object.create(Parent.prototype)
   Child.prototype.constructor = Child
@@ -19,7 +19,7 @@ In addition there is an optional third argument which takes an object to mixin w
 
 Example usage adding a getter and a method to the child's prototype:
 
-```
+```js
 extend(parent, child, {
   get name () {
     return this.name
@@ -33,7 +33,7 @@ extend(parent, child, {
 Copying accessors was a discovery. **Object.assign** evalutes these to key and value pairs rather than copying the actual accessor methods.
 
 Example
-```
+```js
 const obj = {
   x: 10,
   get posX() {
@@ -57,7 +57,7 @@ A full solution for this is called ***assignComplete*** and can be found on MDN'
 
 Following on from extend, the following course example also runs into potentially similar issues with accessors
 
-```
+```js
 function mixin(target, ...sources){
   Object.assign(target, ...sources)
 }
@@ -67,7 +67,7 @@ Utitlising some existing functions in the extend script it was pretty straight f
 Usage is the same as the course example `mixin(targetObject, sourceObject1, sourceObject1 etc)`
 
 A simple test
-```
+```js
 var obj1 = {
   x: 10,
   get currentPos () {
